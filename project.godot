@@ -11,8 +11,8 @@ config_version=5
 [application]
 
 config/name="ctrl-escape"
+run/main_scene="uid://cm1nfskboxif8"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-config/icon="res://icon.svg"
 
 [physics]
 

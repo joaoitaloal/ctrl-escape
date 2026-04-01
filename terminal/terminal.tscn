@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://cm1nfskboxif8"]
+
+[ext_resource type="Script" uid="uid://b423hpodu46gn" path="res://terminal/terminal.gd" id="1_l3hco"]
+
+[node name="Terminal" type="Control" unique_id=1135566649]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l3hco")
+
+[node name="Input" type="LineEdit" parent="." unique_id=1232471265]
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = 200.0
+offset_right = 412.0
+offset_bottom = 231.0
+keep_editing_on_text_submit = true
+
+[node name="Submit" type="Button" parent="." unique_id=1384812571]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 419.0
+offset_top = 200.0
+offset_right = 470.0
+offset_bottom = 231.0
+text = "Bttn"
+
+[node name="Output" type="RichTextLabel" parent="." unique_id=1388405501]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 412.0
+offset_bottom = 193.0
+
+[connection signal="pressed" from="Submit" to="." method="_on_submit_pressed"]
