@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://p2r1wjffui68"]
+
+[ext_resource type="Script" uid="uid://c56kf4bkfcfb1" path="res://Menus/Menu principal/menu_principal.gd" id="1_0vqsy"]
+[ext_resource type="Texture2D" uid="uid://nblgcowxdrfk" path="res://Artes/botoes/botão configuração.png" id="2_13irf"]
+[ext_resource type="Texture2D" uid="uid://27qf65avg6g0" path="res://Artes/botão saída.png" id="3_jeylh"]
+[ext_resource type="Texture2D" uid="uid://c1nqvseyx6du7" path="res://Artes/logo.png" id="4_rg02c"]
+[ext_resource type="Texture2D" uid="uid://cn11rf5gpaks1" path="res://Artes/botoes/botão jogar.png" id="5_xvmgg"]
+
+[node name="Menu principal" type="Control" unique_id=1543491941]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0vqsy")
+
+[node name="Config" type="Button" parent="." unique_id=1231168211]
+layout_mode = 0
+offset_left = 999.0
+offset_top = 24.0
+offset_right = 1057.0
+offset_bottom = 82.0
+icon = ExtResource("2_13irf")
+
+[node name="Exit" type="Button" parent="." unique_id=414098504]
+layout_mode = 0
+offset_left = 1070.0
+offset_top = 25.000004
+offset_right = 1178.0
+offset_bottom = 133.0
+scale = Vector2(0.49950248, 0.49950248)
+icon = ExtResource("3_jeylh")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=161230064]
+layout_mode = 0
+offset_left = 333.0
+offset_top = 18.000002
+offset_right = 1033.0
+offset_bottom = 318.0
+scale = Vector2(0.6310486, 0.6310486)
+texture = ExtResource("4_rg02c")
+
+[node name="Jogar" type="Button" parent="." unique_id=892750582]
+layout_mode = 0
+offset_left = 467.00003
+offset_top = 487.00003
+offset_right = 975.0
+offset_bottom = 795.0
+scale = Vector2(0.39010903, 0.39010903)
+icon = ExtResource("5_xvmgg")
+
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
