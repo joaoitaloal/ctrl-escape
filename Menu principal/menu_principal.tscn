@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://p2r1wjffui68"]
+
+[ext_resource type="Script" uid="uid://c56kf4bkfcfb1" path="res://Menu principal/menu_principal.gd" id="1_pefk3"]
+
+[node name="Menu principal" type="Control" unique_id=1543491941]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pefk3")
+
+[node name="Config" type="Button" parent="." unique_id=1231168211]
+layout_mode = 0
+offset_left = 1048.0
+offset_top = 14.0
+offset_right = 1056.0
+offset_bottom = 22.0
+
+[node name="Exit" type="Button" parent="." unique_id=414098504]
+layout_mode = 0
+offset_left = 1100.0
+offset_top = 12.0
+offset_right = 1108.0
+offset_bottom = 20.0
+
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
