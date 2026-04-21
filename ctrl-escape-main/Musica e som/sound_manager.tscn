@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://cws43rysw8u1n"]
-
-[ext_resource type="Script" uid="uid://bdkj1cgdonfmv" path="res://Musica e som/sound_manager.gd" id="1_y2x4j"]
-
-[node name="Sound Manager" type="Node" unique_id=1660642085]
-script = ExtResource("1_y2x4j")
