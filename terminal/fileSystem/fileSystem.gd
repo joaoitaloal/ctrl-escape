@@ -12,7 +12,10 @@ var root: Folder = Folder.new("", null);
 
 # Pasta sendo navegada atualmente
 var cur_folder: Folder = root;
-var cur_path: String = "/"; # Caminho atual, pro display no terminal
+var cur_path: String = "/"; # Caminho atual
+
+var lastModifiedFolder = null;
+var lastModifiedFile = null;
 
 func navigate(path: String):
 	var folder = resolve_path(path, true);
@@ -21,19 +24,22 @@ func navigate(path: String):
 		cur_path = get_full_path(folder);
 
 # TODO o mkdir avisa se o folder foi criado com sucesso ou não?
+# TODO lastModifiedFolder
 func create_folder(path: String):
 	var formatted = format_path(path);
-	var folder_name = formatted.tokens[formatted.tokens.size()-1]
+	var folder_name = formatted.tokens[formatted.tokens.size()-1];
 	formatted.tokens.remove_at(formatted.tokens.size()-1);
 	
 	# folder pai do folder que vai ser criado
 	var folder = resolve_path_tokens(formatted.tokens, formatted.cur);
-	if(folder): 
+	if(folder):
 		folder.create_folder(folder_name);
 		return true;
 	return false;
 
 # TODO não sei se o touch avisa tbm
+# TODO atualizar lastModifiedFile
+# TODO lastModifiedFolder
 func create_file(path: String):
 	var formatted = format_path(path);
 	var file_name = formatted.tokens[formatted.tokens.size()-1]
@@ -46,11 +52,36 @@ func create_file(path: String):
 		return true;
 	return false;
 
+# TODO lastModifiedFolder
+func remove_folder(path: String):
+	pass
+
+# TODO atualizar lastModifiedFile
+# TODO lastModifiedFolder
+func remove_file(path: String):
+	pass
+
+# TODO atualizar lastModifiedFile
+# TODO lastModifiedFolder
+func append_content(path: String, content: String):
+	pass
+
+# TODO atualizar lastModifiedFile
+# TODO lastModifiedFolder
+func set_content(path: String, content: String):
+	pass
+
+func get_content(path: String):
+	pass
+
 func list_files(path: String) -> Array[File]:
-	return resolve_path(path).get_files();
+	var folder = resolve_path(path);
+	if(!folder): return [];
+	return folder.get_files();
 
 func list_folders(path: String) -> Array[Folder]:
 	var folder = resolve_path(path);
+	if(!folder): return [];
 	return folder.get_folders();
 
 # Função pra pegar o caminho de uma pasta a partir do root

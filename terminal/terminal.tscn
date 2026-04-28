@@ -93,17 +93,6 @@ vertical_alignment = 2
 unique_name_in_owner = true
 script = ExtResource("2_cgvah")
 
-[node name="AVISOTEMPORARIO" type="Label" parent="." unique_id=946110369]
-layout_mode = 0
-offset_left = -344.0
-offset_top = 21.0
-offset_right = -199.0
-offset_bottom = 70.0
-text = "TODO posicionar
-essas coisas direito,
-E esse display path
-ta paia"
-
 [node name="DisplayPath" type="Label" parent="." unique_id=1926533763]
 unique_name_in_owner = true
 layout_mode = 0

@@ -19,6 +19,13 @@ func create_folder(name_: String):
 func create_file(name_: String):
 	files.set(name_, File.new(name_));
 
+# TODO remover recursivamente
+func remove_folder(name_: String):
+	return folders.erase(name_);
+
+func remove_file(name_: String):
+	return files.erase(name_);
+
 func get_folder(name_: String) -> Folder:
 	if(name_ == ".."): return parent;
 	return folders.get(name_);

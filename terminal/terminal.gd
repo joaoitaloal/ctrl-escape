@@ -3,6 +3,10 @@ extends Control
 
 # TODO checar o comportamento de todos esses comandos pra ver se tão certos
 # TODO acho que tá faltando vários feedbacks qnd o comando não é completado com sucesso
+# TODO redirecionamento
+# TODO variáveis
+
+# TODO separar o terminal do sistema de arquivos
 
 var ACTIONS = {
 	"clear": clear,
@@ -10,8 +14,15 @@ var ACTIONS = {
 	"cd" : cd,
 	"ls": ls,
 	"mkdir": mkdir,
-	"touch": touch
+	"touch": touch,
+	"rm": rm,
+	"cp": cp,
+	"mv": mv,
+	"cat": cat,
+	"pwd": pwd
 }
+
+var lastOutput = "";
 
 func _ready():
 	%DisplayPath.text = %FileSystem.cur_path;
@@ -24,6 +35,7 @@ func t_print(text_: String):
 func clear(_args: PackedStringArray):
 	%Output.clear();
 
+# TODO -m = não adicionar quebra de linha
 func echo(args: PackedStringArray):
 	var text = " ".join(args);
 	text = text.replace("[", "[lb]")
@@ -33,6 +45,7 @@ func cd(args: PackedStringArray):
 	%FileSystem.navigate("".join(args));
 	%DisplayPath.text = %FileSystem.cur_path;
 
+# TODO -a = Mostrar arquivos escondidos
 func ls(args: PackedStringArray):
 	var path = "".join(args);
 	var folders = %FileSystem.list_folders(path);
@@ -46,11 +59,50 @@ func ls(args: PackedStringArray):
 	tokens.sort();
 	t_print(" ".join(tokens));
 
+# TODO -p = Criar diretórios pais inexistentes
 func mkdir(args: PackedStringArray):
 	%FileSystem.create_folder("".join(args));
 
 func touch(args: PackedStringArray):
 	%FileSystem.create_file("".join(args));
+
+# TODO -r = Apagar pastas
+func rm(args: PackedStringArray):
+	pass
+
+# TODO -r = Copiar pastas
+func cp(args: PackedStringArray):
+	pass
+
+func mv(args: PackedStringArray):
+	pass
+
+func cat(args: PackedStringArray):
+	pass
+
+func pwd(args: PackedStringArray):
+	pass
+
+# === Funções auxiliares === #
+
+# TODO echo hdausd/ads/*.txt <-- expansão, dificil, baixa prioridade
+# TODO adicionar "a b" ou a\ b como um argumento só
+# TODO substituir quebra de linha por [br]
+# TODO atualizar lastOutput
+func parse(input: String):
+	# ls | grep [>>, >] arquivo.txt
+	# TODO Função que roda os comandos, aplicando os operadores
+	pass
+
+# Supõe que a entrada é um comando, sem redirecionamento por exemplo
+func parse_command(input: String):
+	return {
+		"command": "cmd",
+		"args": [],
+		"flags": {
+				"p": "arg"
+			}
+	}
 
 func _on_submit_pressed():
 	var args: PackedStringArray =  %Input.text.split(" ");
